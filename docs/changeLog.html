@@ -2,6 +2,18 @@
 layout: page
 title: Change Log
 ---
+<section class="changelog"><h1>Version 1.2.1</h1>
+  <h2>2026/05/18</h2>
+  <li>
+    Fixed error handling in minified production builds by replacing fragile constructor.name == "HttpError" checks with instanceof HttpError in transport.js and campaign.js.
+  </li>
+  <li>
+    This resolves an issue where HTTP 500 responses from Campaign servers could lose statusCode, response body data, and XSV error details after bundling/minification (e.g. with Terser or esbuild).
+  </li>
+  <li>
+    Bumped dependencies version to fix vulnerabilities
+  </li>
+</section>
 
 <section class="changelog"><h1>Version 1.2.0</h1>
   <h2>2026/04/04</h2>
