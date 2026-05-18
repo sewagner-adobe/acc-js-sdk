@@ -128,8 +128,7 @@ governing permissions and limitations under the License.
         if(ex.name === 'AbortError'){
           throw ex;
         }
-        const proto = Object.getPrototypeOf(ex);
-        if (proto.constructor.name == "HttpError")
+        if (ex instanceof HttpError)
           throw ex;
         throw new HttpError(ex.status, ex.statusText);
       });
@@ -137,6 +136,7 @@ governing permissions and limitations under the License.
     };
 
     module.exports.request = request;
+    module.exports.HttpError = HttpError;
 
   }
 
